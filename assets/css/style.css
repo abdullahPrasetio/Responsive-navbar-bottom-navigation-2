@@ -1,0 +1,207 @@
+/* Google fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Variable css */
+:root{
+    --header-height: 3rem;
+    /* Colors */
+    --hue:45;
+    --sat:98%;
+    --first-color: hsl(var(--hue),var(--sat), 60%);
+    --first-color-light: hsl(var(--hue),var(--sat), 85%);
+    --first-color-lighten: hsl(var(--hue),var(--sat),80%);
+    --first-color-alt: hsl(var(--hue),var(--sat),53%);
+    --title-color: hsl(var(--hue),4% ,15%);
+    --text-color: hsl(var(--hue),4% ,35%);
+    --text-color-light: hsl(var(--hue),4% ,65%);
+    --body-color: hsl(var(--hue),0% ,100%);
+    --container-color: #FFF;
+    --scroll-bar-color: hsl(var(--hue), 4%, 85%);
+    --scroll-thumb-color: hsl(var(--hue), 4%, 75%);
+
+    /* Fonts and typography */
+    --body-font: 'Poppins',sans-serif;
+    --biggest-font-size: 2rem;
+    --h2-font-size:1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+    /* Font weight */
+    --font-semi-bold:600;
+    --font-bold:700;
+    /* Margin */
+    --mb-0-5: .5rem;
+    --mb-0-75:.75rem;
+    --mb-1:1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2:2rem;
+    /* Z-index */
+
+    --z-tooltip:10;
+    --z-fixed:100;
+}
+
+@media screen and (min-width:968px) {
+    :root{
+        --biggest-font-size: 3rem;
+        --h2-font-size:1.75rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/* Base */
+
+*,::before,::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    /* background-color:#333; */
+    color: var(--text-color);
+    transition: .5s;
+}
+
+h1, h2, h3{
+    font-weight: var(--font-semi-bold);
+    color: var(--title-color);
+    line-height: 1.5;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color:var(--title-color);
+}
+
+/* Theme */
+
+/* Button */
+
+/* Reusable class */
+
+.section{
+    padding: 4.5rem 0 1rem;
+    min-height: 450px;
+}
+.section__title-center{
+    text-align: center;
+}
+
+.text-bold{
+    font-weight: 700;
+}
+
+.color-secondary{
+    background-color:var(--first-color-light);
+}
+
+/* Header or navbar */
+.header{
+    width: 100%;
+    background-color: var(--container-color);
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: var(--z-fixed);
+    transition: 0.5s;
+}
+
+.nav{
+    height:var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 0 .5rem; */
+}
+
+.nav__link:hover{
+    color: var(--first-color-light);
+}
+
+.nav__list{
+    display:grid;
+    row-gap: .5rem;
+}
+
+@media screen and (max-width:767px){
+    .nav__menu{
+        position: fixed;
+        left: 0;
+        top: -100%;
+        right: 0;
+        width: 90%;
+        margin: 0 auto;
+        background-color:var(--container-color);
+        padding: 2.5rem 1.25rem;
+        transition:.6s;
+        border-radius: .5rem;
+        z-index: var(--z-fixed);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* show Menu */
+.show-menu{
+    top: 4rem;
+}
+
+/* Active link */
+.active-link{
+    position:relative;
+}
+
+.active-link::before{
+    content:'';
+    width: 5px;
+    height: 5px;
+    position:absolute;
+    left: 45%;
+    background-color:var(--title-color);
+    border-radius: 50%;
+    bottom: -.5rem;
+}
+
+/* Scroll header */
+.scroll-header{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.container{
+    max-width: 968px;
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+}
+
+@media screen and (min-width: 768px){
+    
+    .nav__list{
+        grid-template-columns: repeat(4, minmax(100px,1fr));
+    }
+    .nav__toggle{
+        display:none;
+    }
+}
+
+@media screen and (min-width: 968px) {
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
